@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Lab 2</string>
+    <string name="auth_login">Login</string>
+    <string name="auth_pwd">Password</string>
+    <string name="auth_auth">Authenticate</string>
+    <string name="auth_bob">bob</string>
+    <string name="auth_sympa">sympa</string>
+    <string name="auth_basicResult">Result</string>
+    <string name="auth_resultHere">My result here</string>
+</resources>
