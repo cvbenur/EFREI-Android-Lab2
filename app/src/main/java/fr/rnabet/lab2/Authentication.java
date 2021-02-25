@@ -33,9 +33,9 @@ public class Authentication extends AppCompatActivity {
         setContentView(R.layout.activity_authentication);
 
 
-        this.authLogin = (EditText)findViewById(R.id.auth_login);
-        this.authPwd = (EditText)findViewById(R.id.auth_pwd);
-        this.authResult = (TextView)findViewById(R.id.auth_result);
+        this.authLogin = findViewById(R.id.auth_login);
+        this.authPwd = findViewById(R.id.auth_pwd);
+        this.authResult = findViewById(R.id.auth_result);
     }
 
 
