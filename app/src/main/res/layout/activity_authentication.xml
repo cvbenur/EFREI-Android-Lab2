@@ -53,7 +53,7 @@
         android:id="@+id/auth_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/auth_basicResult"
+        android:text="@string/auth_defaultResult"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -5,6 +5,5 @@
     <string name="auth_auth">Authenticate</string>
     <string name="auth_bob">bob</string>
     <string name="auth_sympa">sympa</string>
-    <string name="auth_basicResult">Result</string>
-    <string name="auth_resultHere">My result here</string>
+    <string name="auth_defaultResult">false</string>
 </resources>
