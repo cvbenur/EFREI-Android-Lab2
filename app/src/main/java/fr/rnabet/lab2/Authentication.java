@@ -52,6 +52,11 @@ public class Authentication extends AppCompatActivity {
         private String res;
 
 
+        public String getRes () {
+            return this.res;
+        }
+
+
         // Ctor
         public AuthRunnable (String login, String pwd) {
             this.login = login;
@@ -96,6 +101,7 @@ public class Authentication extends AppCompatActivity {
     }
 
 
+    // Click handler for "Authenticate" button
     public void authenticate (View view) throws InterruptedException {
         AuthRunnable r = new AuthRunnable(authLogin.getText().toString(), authPwd.getText().toString());
         Thread authThread = new Thread(r);
@@ -104,7 +110,7 @@ public class Authentication extends AppCompatActivity {
         authThread.join();      // Wait for auth to finish
 
         // Print query result on Activity
-        authResult.setText(r.res);
+        authResult.setText(r.getRes());
     }
 
 
