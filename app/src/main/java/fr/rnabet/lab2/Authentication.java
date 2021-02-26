@@ -23,9 +23,11 @@ import java.net.URL;
 
 public class Authentication extends AppCompatActivity {
 
+    // Attributes
     private EditText authLogin;
     private EditText authPwd;
     private TextView authResult;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,20 +35,24 @@ public class Authentication extends AppCompatActivity {
         setContentView(R.layout.activity_authentication);
 
 
-        this.authLogin = findViewById(R.id.auth_login);
-        this.authPwd = findViewById(R.id.auth_pwd);
-        this.authResult = findViewById(R.id.auth_result);
+        // Retrieve layout item references on Activity creation
+        this.authLogin = (EditText) findViewById(R.id.auth_login);
+        this.authPwd = (EditText) findViewById(R.id.auth_pwd);
+        this.authResult = (TextView) findViewById(R.id.auth_result);
     }
 
 
+    // Inner class AuthRunnable which implements Runnable
     class AuthRunnable implements Runnable {
 
+        // Attributes
         private String login;
         private String pwd;
 
         private String res;
 
 
+        // Ctor
         public AuthRunnable (String login, String pwd) {
             this.login = login;
             this.pwd = pwd;
@@ -73,6 +79,7 @@ public class Authentication extends AppCompatActivity {
                     String s = readStream(in);
                     Log.i("JFL", s);
 
+                    // Destructuring recieved JSON object and casting "authenticated" field to Boolean
                     res = Boolean.toString(new JSONObject(s).getBoolean("authenticated"));
 
                 } catch (JSONException e) {
@@ -88,15 +95,20 @@ public class Authentication extends AppCompatActivity {
         }
     }
 
+
     public void authenticate (View view) throws InterruptedException {
         AuthRunnable r = new AuthRunnable(authLogin.getText().toString(), authPwd.getText().toString());
         Thread authThread = new Thread(r);
-        authThread.start();
-        authThread.join();
 
+        authThread.start();     // Launch AuthThread with provided credentials as parameters
+        authThread.join();      // Wait for auth to finish
+
+        // Print query result on Activity
         authResult.setText(r.res);
     }
 
+
+    // readStream() implementation to turn recieved bytes to parsable String
     private String readStream (InputStream in) {
         try {
             ByteArrayOutputStream bo = new ByteArrayOutputStream();
